@@ -7,10 +7,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+import utilities.finders.ElementAction;
 
 import java.net.MalformedURLException;
 
 public class BaseProfile extends BaseTest {
+    ElementAction action = new ElementAction();
 
     public By txtHeaderTitle = By.id(ObjectElement.ProfilePageObject.txtHeaderTitle);
 
@@ -46,11 +48,33 @@ public class BaseProfile extends BaseTest {
 
     public By inputAlternatePhoneNumber = By.id(ObjectElement.EditProfileObject.inputAlternatePhoneNumber);
 
-    /* profile-menu-page */
+    public By btnChangePin = By.id(ObjectElement.AccountObject.btnChangePin);
 
-    public void clickButtonEditProfile() {
-        driver.findElement(By.id(ObjectElement.ProfilePageObject.btnEdit)).click();
-    }
+    public By inputPin = By.id(ObjectElement.AccountObject.inputPin);
+
+    public By btnNext = By.id(ObjectElement.AccountObject.btnNext);
+
+    public By btnDeliveryAddress = By.id(ObjectElement.AccountObject.btnDeliveryAddress);
+
+    public By btnAddAddress = By.id(ObjectElement.AccountObject.btnAddAddress);
+
+    public By btnSelectThisLocation = By.id(ObjectElement.AccountObject.btnSelectThisLocation);
+
+    public By btnSimInfo = By.id(ObjectElement.SIMSettingObject.btnSimInfo);
+
+    public By btnCheckCompatibility = By.id(ObjectElement.SIMSettingObject.btnCheckCompatibility);
+
+    public By btnCHat = By.id(ObjectElement.HelpPageObject.btnCHat);
+
+    public By btnFAQ = By.id(ObjectElement.HelpPageObject.btnFAQ);
+
+    public By btnChatIn = By.id(ObjectElement.HelpPageObject.btnChatIn);
+
+    public By InputChat = By.id(ObjectElement.HelpPageObject.InputChat);
+
+    public By txtHeadTitleMenu = By.id(ObjectElement.ReferralObject.txtHeadTitleMenu);
+
+    /* profile-menu-page */
 
     public void clickSeeAllFavorite() {
         driver.findElement(By.id(ObjectElement.ProfilePageObject.btnSeeAllFavorite)).click();
@@ -157,6 +181,16 @@ public class BaseProfile extends BaseTest {
         }
     }
 
+    public void setInputChat() {
+        if (driver.findElement(By.id(ObjectElement.HelpPageObject.btnChatNotAvailable)).isDisplayed()) {
+            System.out.println("Chat Not Available");
+        } else {
+            action.click(btnChatIn);
+            action.sendKeys(InputChat,"hello");
+            action.checkerEqual(txtHeadTitleMenu,"Chat");
+        }
+    }
+
     public void updateAlternatePhoneNumber() {
         String AlternatePhone = driver.findElement(By.id(ObjectElement.EditProfileObject.inputAlternatePhoneNumber)).getText();
         if (AlternatePhone.equals(BaseData.Validation.VALIDATION_ALT_PHONE_1)) {
@@ -169,14 +203,6 @@ public class BaseProfile extends BaseTest {
             driver.findElement(By.id(ObjectElement.EditProfileObject.inputAlternatePhoneNumber)).click();
             driver.findElement(By.id(ObjectElement.EditProfileObject.inputAlternatePhoneNumber)).sendKeys("8194120194");
         }
-    }
-
-    public void inputFullName(String fullName) {
-        driver.findElement(By.id(ObjectElement.EditProfileObject.inputFullName)).sendKeys(fullName);
-    }
-
-    public void clickButtonSubmitEditProfile() {
-        driver.findElement(By.id(ObjectElement.EditProfileObject.btnSubmitChangeProfile)).click();
     }
 
     public void clickButtonBahasa() throws InterruptedException {
@@ -192,35 +218,23 @@ public class BaseProfile extends BaseTest {
 
     public void clickButtonCopyRefCode() {
         final String referralCode = driver.findElement(By.id(ObjectElement.ReferralObject.txtReferralCode)).getText();
-        Assert.assertEquals(referralCode, "fgyRpcHC");
+        Assert.assertEquals(referralCode, "HDi0lyIe");
         driver.findElement(By.id(ObjectElement.ReferralObject.btnCopyRef)).click();
     }
 
     public void clickButtonShareRefCode() {
         final String referralCode = driver.findElement(By.id(ObjectElement.ReferralObject.txtReferralCode)).getText();
-        Assert.assertEquals(referralCode, "fgyRpcHC");
+        Assert.assertEquals(referralCode, "HDi0lyIe");
         driver.findElement(By.id(ObjectElement.ReferralObject.btnShareRef)).click();
     }
 
-    public void clickButtonChangePIN() {
-        driver.findElement(By.id(ObjectElement.AccountObject.btnChangePin)).click();
-    }
-
-    public void inputChangePIN(String pin) {
-        driver.findElement(By.id(ObjectElement.AccountObject.inputPin)).sendKeys(pin);
-    }
-
-    public void clickButtonConfirmChangePIN() {
-        driver.findElement(By.id(ObjectElement.AccountObject.btnNext)).click();
-    }
-
-    public void clickButtonDeliveryAddress() {
-        driver.findElement(By.id(ObjectElement.AccountObject.btnDeliveryAddress)).click();
-    }
-
-    public void clickButtonAdd() {
-        driver.findElement(By.id(ObjectElement.AccountObject.btnAddAddress)).click();
-        driver.hideKeyboard();
+    public void checkWishlistTitle() {
+        String TitleWishlist = driver.findElement(By.id(ObjectElement.ReferralObject.txtHeadTitleMenu)).getText();
+        if (TitleWishlist.equals(BaseData.Profile.WishlistTitle_ID)) {
+            Assert.assertEquals(TitleWishlist, BaseData.Profile.WishlistTitle_ID);
+        } else {
+            Assert.assertEquals(TitleWishlist, BaseData.Profile.WishlistTitle_ENG);
+        }
     }
 
     public void inputHomeOrOffice(String homeOfficeName) {
@@ -302,7 +316,11 @@ public class BaseProfile extends BaseTest {
     }
 
     public void clickCheckboxTermsAndCondition() {
-        driver.findElement(By.id(ObjectElement.AccountObject.cbTermsAndCondition)).click();
+        MobileElement elementToClick = (MobileElement) driver
+                .findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
+                        + ".resourceId(\"com.smartfren.switchmobile:id/scrollView2\")).scrollIntoView("
+                        + "new UiSelector().resourceId(\"com.smartfren.switchmobile:id/checkBox\"));");
+        elementToClick.click();
     }
 
     public void clickButtonSave() {
@@ -313,12 +331,9 @@ public class BaseProfile extends BaseTest {
         elementToClick.click();
     }
 
-    public void clickButtonSIMInfo() {
-        driver.findElement(By.id(ObjectElement.SIMSettingObject.btnSimInfo)).click();
-    }
-
     public void checkSIMInfo() {
-
+        String SimTitle = driver.findElement(By.id(ObjectElement.ReferralObject.txtHeadTitleMenu)).getText();
+        Assert.assertEquals(SimTitle, BaseData.Profile.SimTitle);
     }
 
     public void clickButtonCheckCompatibility() {

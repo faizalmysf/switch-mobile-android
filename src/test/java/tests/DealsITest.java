@@ -40,4 +40,31 @@ public class DealsITest extends TestSetup {
         login.checkValidLoginUsingSwitchNumber();
         dealsPages.testCheckRubyValue();
     }
+
+    @Test(priority = 154, description = "Switch - mark deals favorit")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that User is able to see All RUBIES by Clicking on See RUBY Menu.")
+    @Story("")
+    public void checkDealsMarkFavorit() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        dealsPages.testMarkWishlistProduct();
+    }
+
+    @Test(priority = 155, description = "Switch - buy voucher with ruby")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that User is able to buy voucher with Ruby.")
+    @Story("")
+    public void checkBuyDealsWithRUby() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        dealsPages.testBuyProductWithRuby();
+    }
+
+    @Test(priority = 156, description = "Switch - buy voucher with point")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Verify that User is able to buy voucher with Point.")
+    @Story("")
+    public void checkBuyDealsWithPoint() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        dealsPages.testBuyProductWithPoint();
+    }
 }

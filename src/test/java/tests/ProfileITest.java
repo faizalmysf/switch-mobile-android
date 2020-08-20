@@ -61,7 +61,7 @@ public class ProfileITest extends TestSetup {
                 "OFFICE",
                 "Faizal",
                 "087784292693"
-                );
+        );
         profilePages.testDeliveryAddress(
                 "Bendungan Hilir",
                 "JL. Benhil Raya"
@@ -106,5 +106,41 @@ public class ProfileITest extends TestSetup {
     public void checkInvalidChangePIN() throws InterruptedException {
         login.checkValidLoginUsingSwitchNumber();
         profilePages.testChangePin("123456");
+    }
+
+    @Test(priority = 210, description = "Switch_Profile - Check Wistlist page")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that user can access wishlist page")
+    @Story("")
+    public void checkWishlistPage() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        profilePages.testCheckWishlist();
+    }
+
+    @Test(priority = 211, description = "Switch_Profile - Check SIM Info")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that user can access SIM info page")
+    @Story("")
+    public void checkSIMInfo() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        profilePages.testCheckSIMInfo();
+    }
+
+    @Test(priority = 212, description = "Switch_Profile - Chat")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that user can doing chat")
+    @Story("")
+    public void checkInputChat() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        profilePages.testChatWithShely();
+    }
+
+    @Test(priority = 213, description = "Switch_Profile - FAQ")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Verify that user can access FAQ page")
+    @Story("")
+    public void checkFAQ() throws InterruptedException {
+        login.checkValidLoginUsingSwitchNumber();
+        profilePages.checkFAQ();
     }
 }

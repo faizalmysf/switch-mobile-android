@@ -1,93 +1,107 @@
 package pages;
 
+import constants.ObjectElement;
 import operation.BaseHomepage;
 import operation.BaseLanding;
 import operation.BaseLogout;
 import operation.BaseProfile;
+import org.openqa.selenium.By;
+import utilities.finders.ElementAction;
 
 public class ProfilePages {
     BaseHomepage baseHomepage = new BaseHomepage();
     BaseProfile baseProfile = new BaseProfile();
     BaseLogout baseLogout = new BaseLogout();
     BaseLanding baseLanding = new BaseLanding();
+    ElementAction action = new ElementAction();
 
     public void testUpdateFullName() {
-        baseHomepage.clickButtonProfile();
-        baseProfile.clickButtonEditProfile();
+        action.click(baseHomepage.btnProfile);
+        action.click(baseProfile.btnEdit);
         baseProfile.updateFullNameProfile();
-        baseProfile.clickButtonSubmitEditProfile();
+        action.click(baseProfile.btnSubmitChangeProfile);
     }
 
     public void testUpdateAlternatePhoneNumber() {
-        baseHomepage.clickButtonProfile();
-        baseProfile.clickButtonEditProfile();
+        action.click(baseHomepage.btnProfile);
+        action.click(baseProfile.btnEdit);
         baseProfile.updateAlternatePhoneNumber();
-        baseProfile.clickButtonSubmitEditProfile();
+        action.click(baseProfile.btnSubmitChangeProfile);
     }
 
     public void testChangeLanguage() throws InterruptedException{
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonLanguage();
     }
 
     public void testInputFullName(String fullName) {
-        baseHomepage.clickButtonProfile();
-        baseProfile.clickButtonEditProfile();
-        baseProfile.inputFullName(fullName);
-        baseProfile.clickButtonSubmitEditProfile();
+        action.click(baseHomepage.btnProfile);
+        action.click(baseProfile.btnEdit);
+        action.sendKeys(baseProfile.inputFullName,fullName);
+        action.click(baseProfile.btnSubmitChangeProfile);
     }
 
     public void testChooseFavorite() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
     }
 
     public void testCopyReferralCode() throws InterruptedException {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickReferralCode();
         baseProfile.clickButtonCopyRefCode();
     }
 
     public void testShareReferralCode() throws InterruptedException {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickReferralCode();
         baseProfile.clickButtonShareRefCode();
+        action.androidBack();
     }
 
     public void testCheckWishlist() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonYourWishlist();
+        baseProfile.checkWishlistTitle();
     }
 
     public void testChangePin(String pin) {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonAccount();
-        baseProfile.clickButtonChangePIN();
-        baseProfile.inputChangePIN(pin);
-        baseProfile.clickButtonConfirmChangePIN();
+        action.click(baseProfile.btnChangePin);
+        action.sendKeys(baseProfile.inputPin,pin);
+        action.click(baseProfile.btnNext);
     }
 
     public void testPhaseTwoChangePin(String pin) {
         testChangePin(pin);
-        baseProfile.inputChangePIN(pin);
-        baseProfile.clickButtonConfirmChangePIN();
+        action.sendKeys(baseProfile.inputPin,pin);
+        action.click(baseProfile.btnNext);
+//        baseProfile.inputChangePIN(pin);
+//        baseProfile.clickButtonConfirmChangePIN();
     }
 
     public void testCompleteChangePin(String pin) {
         testChangePin(pin);
-        baseProfile.inputChangePIN(pin);
-        baseProfile.clickButtonConfirmChangePIN();
-        baseProfile.inputChangePIN(pin);
-        baseProfile.clickButtonConfirmChangePIN();
+        action.sendKeys(baseProfile.inputPin,pin);
+        action.click(baseProfile.btnNext);
+        action.sendKeys(baseProfile.inputPin,pin);
+        action.click(baseProfile.btnNext);
+//
+//        baseProfile.inputChangePIN(pin);
+//        baseProfile.clickButtonConfirmChangePIN();
+//        baseProfile.inputChangePIN(pin);
+//        baseProfile.clickButtonConfirmChangePIN();
     }
 
     public void testAddDeliveryAddress(String homeOfficeName, String recipientName, String recipientNumber) {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonAccount();
-        baseProfile.clickButtonDeliveryAddress();
-        baseProfile.clickButtonAdd();
+        action.click(baseProfile.btnDeliveryAddress);
+        action.click(baseProfile.btnAddAddress);
         baseProfile.inputHomeOrOffice(homeOfficeName);
         baseProfile.inputRecipientName(recipientName);
         baseProfile.inputRecipientPhoneNumber(recipientNumber);
+
     }
 
     public void testDeliveryAddress(String city, String address) {
@@ -96,30 +110,45 @@ public class ProfilePages {
         baseProfile.clickSelectedCityOrDistrict();
         baseProfile.inputAddressDetail(address);
         baseProfile.clickButtonChooseLocation();
-        baseProfile.clickButtonSelectThisLocation();
+        action.click(baseProfile.btnSelectThisLocation);
         baseProfile.clickCheckboxTermsAndCondition();
         baseProfile.clickButtonSave();
     }
 
     public void testCheckSIMInfo() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonSIMSettings();
-        baseProfile.clickButtonSIMInfo();
-//        baseProfile.checkSIMInfo();
+        action.click(baseProfile.btnSimInfo);
+        baseProfile.checkSIMInfo();
     }
 
     public void testCheckCompatibility() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonSIMSettings();
-        baseProfile.clickButtonCheckCompatibility();
+        action.click(baseProfile.btnCheckCompatibility);
+
+//        baseHomepage.clickButtonProfile();
+//        baseProfile.clickButtonSIMSettings();
+//        baseProfile.clickButtonCheckCompatibility();
 //        baseProfile.checkCompatibility();
     }
 
     public void testChatWithShely() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonHelp();
-        baseProfile.clickButtonChatWithShely();
-        baseProfile.clickButtonChat();
+        action.click(baseProfile.btnCHat);
+        action.click(baseProfile.btnChatIn);
+        baseProfile.setInputChat();
+//        action.sendKeys(baseProfile.InputChat,"hello");
+//        action.checkerEqual(baseProfile.txtHeadTitleMenu,"Chat");
+    }
+
+    public void checkFAQ() {
+        action.click(baseHomepage.btnProfile);
+        baseProfile.clickButtonHelp();
+        action.click(baseProfile.btnFAQ);
+        action.checkTextCountains("FAQ & Tutorial");
+
     }
 
     public void testEmailUs() {
@@ -130,9 +159,13 @@ public class ProfilePages {
     }
 
     public void testValidLogout() throws InterruptedException {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonLogout();
-        baseLogout.clickButtonConfirmLogout();
+        action.click(baseLogout.btnConfirmLogout);
+
+//        baseHomepage.clickButtonProfile();
+//        baseProfile.clickButtonLogout();
+//        baseLogout.clickButtonConfirmLogout();
     }
 
     public void testLogout() {
@@ -141,7 +174,9 @@ public class ProfilePages {
     }
 
     public void testClickButtonLoginHere() {
-        baseLogout.clickButtonLoginHere();
+        action.click(baseHomepage.btnProfile);
+        action.click(baseLogout.btnLoginHere);
         baseLanding.checkValidationWelcomeText();
+
     }
 }

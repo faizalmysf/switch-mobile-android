@@ -10,6 +10,7 @@ public class HomePages {
 
     public void testUserCanMoveToMainMenuPage() throws InterruptedException {
         action.click(baseHomepage.btnDeals);
+        action.checkerEnabled(baseHomepage.btnDeals);
         Thread.sleep(2500);
         action.click(baseHomepage.btnQuest);
         Thread.sleep(2500);

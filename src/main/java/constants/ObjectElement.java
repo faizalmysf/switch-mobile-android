@@ -79,6 +79,27 @@ public class ObjectElement extends BaseTest {
                 "androidx.recyclerview.widget.RecyclerView[0]" +
                 "android.widget.TextView" +
                 "[@resource-id='com.smartfren.switchmobile:id/txt_see_all']";
+        String btnSeeAllSpecialDeals2TOP ="com.smartfren.switchmobile:id/txt_see_all";
+        String searchVoucher="com.smartfren.switchmobile:id/edt_search";
+        String totalPoint= "com.smartfren.switchmobile:id/txt_total_point";
+        String totalRuby= "com.smartfren.switchmobile:id/txt_total_point_value";
+        String voucherTitle="com.smartfren.switchmobile:id/txt_title";
+        String btnStarFavorit= "com.smartfren.switchmobile:id/img_fav";
+        String btnStarWishlist="com.smartfren.switchmobile:id/startButton";
+        String txtemptyMessage="com.smartfren.switchmobile:id/txtMessage";
+        String getTxtRubyValue= "com.smartfren.switchmobile:id/ruby_value";
+        String getTxtPointValue= "com.smartfren.switchmobile:id/points_value";
+        String btnBuyVoucher= "com.smartfren.switchmobile:id/btn_get";
+        String btnRedeemVoucher= "com.smartfren.switchmobile:id/redeem";
+        String txtFnB= "//android.widget.TextView[@text='F&B']";
+        String txtShopping= "//android.widget.TextView[@text='Shopping']";
+        String couponCount= "com.smartfren.switchmobile:id/txt_coupon_count";
+        String btnDealsNotification= "com.smartfren.switchmobile:id/im_notification";
+        String txtRahmatPoint= "//android.widget.TextView[@text='Rahmat Deals Point']";
+
+
+
+
     }
 
     public interface HistoryPageObject {
@@ -121,6 +142,14 @@ public class ObjectElement extends BaseTest {
         String btnLoginHere = "com.smartfren.switchmobile:id/clickhere";
     }
 
+    public interface HelpPageObject {
+        String btnCHat = "com.smartfren.switchmobile:id/txt_chat_with_us";
+        String btnChatIn = "com.smartfren.switchmobile:id/txt_chat";
+        String InputChat = "com.smartfren.switchmobile:id/input_field";
+        String btnBackFromChat = "com.smartfren.switchmobile:id/imageView2";
+        String btnChatNotAvailable ="com.smartfren.switchmobile:id/no_agents_button";
+        String btnFAQ ="com.smartfren.switchmobile:id/txt_faq";
+    }
     public interface EditProfileObject {
         String inputFullName = "com.smartfren.switchmobile:id/user_name";
         String btnSubmitChangeProfile = "com.smartfren.switchmobile:id/save";
