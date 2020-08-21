@@ -22,6 +22,8 @@ public class BaseLanding extends BaseTest {
 
     public By btnLogin = By.id(ObjectElement.LandingPageObject.btnLogin);
 
+    public By btnHeadLogin = By.id(ObjectElement.SignUpPageObject.btnLogin);
+
     public By btnSignUp = By.id(ObjectElement.LandingPageObject.btnSignUp);
 
     public By btnSkip = By.id(ObjectElement.LandingPageObject.btnSkip);
@@ -49,6 +51,8 @@ public class BaseLanding extends BaseTest {
     public By btnSubmitLogin = By.id(ObjectElement.LoginPageObject.btnSubmitLogin);
 
     public By btnGoogleAccount = By.id(ObjectElement.LoginPageObject.btnGoogleAccount);
+
+    public By btnBack = By.id(ObjectElement.LoginPageObject.btnBack);
 
     public String titlePage() {
         String titlePage = action.getText(txtTitlePages);

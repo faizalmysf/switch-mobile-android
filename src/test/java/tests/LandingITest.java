@@ -78,14 +78,15 @@ public class LandingITest extends TestSetup {
         landingPages.testCheckLoginPage();
     }
 
-    @Test(priority = 7, description = "Switch_Land_007 - User able to go to Login/SignUp with Bahasa Language")
-    @Severity(SeverityLevel.NORMAL)
-    @Description("Verify that User is navigating to Sign Up Page on Clicking on Sign Up Button in any storyboard.")
-    @Story("Story Name : Check On Landing Page")
-    public void checkGoToSignInPageBahasa() throws InterruptedException {
-        profilePages.testChangeLanguage();
-        profilePages.testLogout();
-        profilePages.testClickButtonLoginHere();
-        landingPages.testGoToSignUpPage();
-    }
+//    @Test(priority = 8, description = "Switch_Land_007 - User able to go to Login/SignUp with Bahasa Language")
+//    @Severity(SeverityLevel.NORMAL)
+//    @Description("Verify that User is navigating to Sign Up Page on Clicking on Sign Up Button in any storyboard.")
+//    @Story("Story Name : Check On Landing Page")
+//    public void checkGoToSignInPageBahasa() throws InterruptedException {
+//        profilePages.testChangeLanguage();
+//        profilePages.testLogout();
+//        profilePages.testClickButtonLoginHere();
+//        landingPages.clickButtonBack();
+//        landingPages.testGoToSignUpPage();
+//    }
 }

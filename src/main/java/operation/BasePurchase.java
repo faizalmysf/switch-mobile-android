@@ -8,6 +8,16 @@ import org.testng.Assert;
 
 public class BasePurchase extends BaseTest {
 
+    public By btnAddToCart = By.id(ObjectElement.ProductPageObject.btnAddToCart);
+
+    public By btnConfirmBuy = By.id(ObjectElement.ProductPageObject.btnConfirmBuy);
+
+    public By btnChoosePayment = By.id(ObjectElement.ProductPageObject.btnChoosePayment);
+
+    public By btnSeeDetailPurchase = By.id(ObjectElement.ProductPageObject.btnSeeDetail);
+
+    public By btnCloseSeeDetailPurchase = By.id(ObjectElement.PaymentDetailObject.btnCloseDetail);
+
     public void clickButtonAddToCart() {
         driver.findElement(By.id(ObjectElement.ProductPageObject.btnAddToCart)).click();
     }

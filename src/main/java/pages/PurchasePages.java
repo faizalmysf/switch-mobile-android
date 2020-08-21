@@ -3,63 +3,65 @@ package pages;
 import operation.BaseHomepage;
 import operation.BaseProduct;
 import operation.BasePurchase;
+import utilities.finders.ElementAction;
 
 public class PurchasePages {
 
     BaseHomepage baseHomepage = new BaseHomepage();
     BaseProduct baseProduct = new BaseProduct();
     BasePurchase basePurchase = new BasePurchase();
+    ElementAction action = new ElementAction();
 
     public void testAddToCartPromoSuperBundle(String productTitle, int increase) throws InterruptedException {
-        baseHomepage.clickButtonBuyProduct();
+        action.click(baseHomepage.btnBuyPlan);
         Thread.sleep(2000);
         baseProduct.clickDetailPromoSuperBundle();
-        baseProduct.checkProductTitle(productTitle);
+        action.checkerEqual(baseProduct.txtProductTitle, productTitle);
         basePurchase.clickButtonIncreaseCountProduct(increase);
-        basePurchase.clickButtonAddToCart();
-        basePurchase.clickButtonConfirmBuy();
-        basePurchase.clickButtonChoosePayment();
-        basePurchase.clickButtonSeeDetailPurchase();
+        action.click(basePurchase.btnAddToCart);
+        action.click(basePurchase.btnConfirmBuy);
+        action.click(basePurchase.btnChoosePayment);
+        action.click(basePurchase.btnSeeDetailPurchase);
     }
 
     public void testAddToCartPromoPowerBundle(String productTitle, int increase) throws InterruptedException {
-        baseHomepage.clickButtonBuyProduct();
+        action.click(baseHomepage.btnBuyPlan);
         baseProduct.clickDetailPromoPowerBundle();
-        baseProduct.checkProductTitle(productTitle);
+        action.checkerEqual(baseProduct.txtProductTitle, productTitle);
         basePurchase.clickButtonIncreaseCountProduct(increase);
         Thread.sleep(3000);
-        basePurchase.clickButtonAddToCart();
-        basePurchase.clickButtonConfirmBuy();
-        basePurchase.clickButtonChoosePayment();
-        basePurchase.clickButtonSeeDetailPurchase();
-        basePurchase.clickCloseButtonSeeDetailPurchase();
+        action.click(basePurchase.btnAddToCart);
+        action.click(basePurchase.btnConfirmBuy);
+        action.click(basePurchase.btnChoosePayment);
+        action.click(basePurchase.btnSeeDetailPurchase);
+        action.click(basePurchase.btnCloseSeeDetailPurchase);
     }
 
     public void testAddToCartPromoStandardBundle(String productTitle, int increase, int decrease) throws InterruptedException {
-        baseHomepage.clickButtonBuyProduct();
+        action.click(baseHomepage.btnBuyPlan);
         baseProduct.clickDetailPromoStandardBundle();
-        baseProduct.checkProductTitle(productTitle);
+        action.checkerEqual(baseProduct.txtProductTitle, productTitle);
         basePurchase.clickButtonIncreaseCountProduct(increase);
         Thread.sleep(3000);
         basePurchase.clickButtonDecreaseCountProduct(decrease);
-        basePurchase.clickButtonAddToCart();
-        basePurchase.clickButtonConfirmBuy();
-        basePurchase.clickButtonChoosePayment();
-        basePurchase.clickButtonSeeDetailPurchase();
-        basePurchase.clickCloseButtonSeeDetailPurchase();
+        action.click(basePurchase.btnAddToCart);
+        action.click(basePurchase.btnConfirmBuy);
+        action.click(basePurchase.btnChoosePayment);
+        action.click(basePurchase.btnSeeDetailPurchase);
+        action.click(basePurchase.btnCloseSeeDetailPurchase);
     }
 
     public void testAddToCartPromoLiteBundle(String productTitle, int increase) throws InterruptedException {
-        baseHomepage.clickButtonBuyProduct();
+        action.click(baseHomepage.btnBuyPlan);
         baseProduct.clickDetailPromoLiteBundle();
-        baseProduct.checkProductTitle(productTitle);
+        action.checkerEqual(baseProduct.txtProductTitle, productTitle);
         basePurchase.clickButtonIncreaseCountProduct(increase);
         Thread.sleep(3000);
-        basePurchase.clickButtonAddToCart();
-        basePurchase.clickButtonConfirmBuy();
-        basePurchase.clickButtonChoosePayment();
-        basePurchase.clickButtonSeeDetailPurchase();
-        basePurchase.clickCloseButtonSeeDetailPurchase();
+        action.click(basePurchase.btnAddToCart);
+        action.click(basePurchase.btnConfirmBuy);
+        action.click(basePurchase.btnChoosePayment);
+        action.click(basePurchase.btnSeeDetailPurchase);
+        action.click(basePurchase.btnCloseSeeDetailPurchase);
     }
 
     public void testConfirmPaymentGopay() {

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 
 public class BaseProduct extends BaseTest {
-    public By btnConfirmLogout = By.id(ObjectElement.ProductPageObject.txtProductTitle);
+    public By txtProductTitle = By.id(ObjectElement.ProductPageObject.txtProductTitle);
 
     public By btnAddToCart = By.id(ObjectElement.ProductPageObject.btnAddToCart);
 

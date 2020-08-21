@@ -39,10 +39,10 @@ public class LandingPages {
         action.click(baseLanding.btnSignUp);
         baseLanding.checkValidationWelcomeText();
         //From sign up page to login page using button header
-        action.click(baseLanding.btnLogin);
+        action.click(baseLanding.btnHeadLogin);
         baseLanding.checkValidationWelcomeText();
         //From login page to sign up using button header
-        action.click(baseLanding.btnLogin);
+        action.click(baseLanding.btnHeadLogin);
         baseLanding.checkValidationWelcomeText();
         //From sign up page to login page using button footer
         action.click(baseLanding.btnLoginHere);
@@ -74,5 +74,9 @@ public class LandingPages {
 
     public void testCheckLoginPage() {
         baseLanding.checkValidationWelcomeText();
+    }
+
+    public void clickButtonBack() {
+        action.click(baseLanding.btnBack);
     }
 }

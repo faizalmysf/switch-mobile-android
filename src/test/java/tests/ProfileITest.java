@@ -87,7 +87,7 @@ public class ProfileITest extends TestSetup {
     @Story("Story Name : Check User Profile")
     public void checkCopyReferralCode() throws InterruptedException {
         login.checkValidLoginUsingSwitchNumber();
-        profilePages.testCopyReferralCode();
+        profilePages.testCopyReferralCode("fgyRpcHC");
     }
 
     @Test(priority = 208, description = "Switch_Profile_008 - User able to Share Referral Code")
@@ -96,7 +96,7 @@ public class ProfileITest extends TestSetup {
     @Story("Story Name : Check User Profile")
     public void checkShareReferralCode() throws InterruptedException {
         login.checkValidLoginUsingSwitchNumber();
-        profilePages.testShareReferralCode();
+        profilePages.testShareReferralCode("fgyRpcHC");
     }
 
     @Test(priority = 209, description = "Switch_Profile_009 - User unable to Change PIN with Incorrect Current PIN")

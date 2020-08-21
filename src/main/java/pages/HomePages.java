@@ -24,21 +24,21 @@ public class HomePages {
     }
 
     public void testUserUnableMoveToAllMenuExceptMainMenu() throws InterruptedException{
-        baseHomepage.clickButtonDeals();
-        baseHomepage.clickButtonCloseGuestPp();
+        action.click(baseHomepage.btnDeals);
+        action.click(baseHomepage.btnCloseGuestPp);
         Thread.sleep(2500);
-        baseHomepage.clickButtonQuest();
-        baseHomepage.clickButtonCloseGuestPp();
+        action.click(baseHomepage.btnQuest);
+        action.click(baseHomepage.btnCloseGuestPp);
         Thread.sleep(2500);
-        baseHomepage.clickButtonHistory();
-        baseHomepage.clickButtonCloseGuestPp();
+        action.click(baseHomepage.btnHistory);
+        action.click(baseHomepage.btnCloseGuestPp);
         Thread.sleep(2500);
-        baseHomepage.clickButtonProfile();
-        baseHomepage.clickButtonCloseGuestPp();
+        action.click(baseHomepage.btnProfile);
+        action.click(baseHomepage.btnCloseGuestPp);
         Thread.sleep(2500);
-        baseHomepage.clickButtonHome();
+        action.click(baseHomepage.btnHome);
         Thread.sleep(2500);
-        baseHomepage.clickButtonNotification();
-        baseHomepage.clickButtonCloseGuestPp();
+        action.click(baseHomepage.btnNotification);
+        action.click(baseHomepage.btnCloseGuestPp);
     }
 }
