@@ -64,7 +64,7 @@ public class DealsITest extends TestSetup {
     @Description("Verify that User is able to buy voucher with Point.")
     @Story("")
     public void checkBuyDealsWithPoint() throws InterruptedException {
-        login.checkValidLoginUsingSwitchNumber();
+        //login.checkValidLoginUsingSwitchNumber();
         dealsPages.testBuyProductWithPoint();
     }
 }

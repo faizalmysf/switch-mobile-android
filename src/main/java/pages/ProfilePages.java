@@ -76,8 +76,6 @@ public class ProfilePages {
         testChangePin(pin);
         action.sendKeys(baseProfile.inputPin,pin);
         action.click(baseProfile.btnNext);
-//        baseProfile.inputChangePIN(pin);
-//        baseProfile.clickButtonConfirmChangePIN();
     }
 
     public void testCompleteChangePin(String pin) {
@@ -86,11 +84,6 @@ public class ProfilePages {
         action.click(baseProfile.btnNext);
         action.sendKeys(baseProfile.inputPin,pin);
         action.click(baseProfile.btnNext);
-//
-//        baseProfile.inputChangePIN(pin);
-//        baseProfile.clickButtonConfirmChangePIN();
-//        baseProfile.inputChangePIN(pin);
-//        baseProfile.clickButtonConfirmChangePIN();
     }
 
     public void testAddDeliveryAddress(String homeOfficeName, String recipientName, String recipientNumber) {
@@ -126,11 +119,6 @@ public class ProfilePages {
         action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonSIMSettings();
         action.click(baseProfile.btnCheckCompatibility);
-
-//        baseHomepage.clickButtonProfile();
-//        baseProfile.clickButtonSIMSettings();
-//        baseProfile.clickButtonCheckCompatibility();
-//        baseProfile.checkCompatibility();
     }
 
     public void testChatWithShely() {
@@ -139,8 +127,6 @@ public class ProfilePages {
         action.click(baseProfile.btnCHat);
         action.click(baseProfile.btnChatIn);
         baseProfile.setInputChat();
-//        action.sendKeys(baseProfile.InputChat,"hello");
-//        action.checkerEqual(baseProfile.txtHeadTitleMenu,"Chat");
     }
 
     public void checkFAQ() {
@@ -152,31 +138,29 @@ public class ProfilePages {
     }
 
     public void testEmailUs() {
-        action.click(baseHomepage.btnProfile);
+       action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonHelp();
-        baseProfile.clickButtonChatWithShely();
+        action.click(baseProfile.btnCHat);
+        action.click(baseProfile.btnEmail);
         baseProfile.clickButtonEmail();
+        action.androidBack();
+        action.checkTextCountains("Email");
     }
 
     public void testValidLogout() throws InterruptedException {
         action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonLogout();
         action.click(baseLogout.btnConfirmLogout);
-
-//        baseHomepage.clickButtonProfile();
-//        baseProfile.clickButtonLogout();
-//        baseLogout.clickButtonConfirmLogout();
     }
 
     public void testLogout() {
         baseProfile.clickButtonLogout();
-        baseLogout.clickButtonConfirmLogout();
+        action.click(baseLogout.btnConfirmLogout);
     }
 
     public void testClickButtonLoginHere() {
         action.click(baseHomepage.btnProfile);
         action.click(baseLogout.btnLoginHere);
         baseLanding.checkValidationWelcomeText();
-
     }
 }

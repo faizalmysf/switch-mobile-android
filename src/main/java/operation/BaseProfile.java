@@ -72,6 +72,8 @@ public class BaseProfile extends BaseTest {
 
     public By InputChat = By.id(ObjectElement.HelpPageObject.InputChat);
 
+    public By btnEmail = By.id(ObjectElement.HelpPageObject.btnEmail);
+
     public By txtHeadTitleMenu = By.id(ObjectElement.ReferralObject.txtHeadTitleMenu);
 
     /* profile-menu-page */
@@ -139,16 +141,16 @@ public class BaseProfile extends BaseTest {
             elementToClick.click();
             driver.findElement(By.id(ObjectElement.ProfilePageObject.btnBahasa)).click();
             driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-                            + ".resourceId(\"com.smartfren.switchmobile:id/scrollView2\")).scrollIntoView("
-                            + "new UiSelector().resourceId(\"com.smartfren.switchmobile:id/language\"));");
+                    + ".resourceId(\"com.smartfren.switchmobile:id/scrollView2\")).scrollIntoView("
+                    + "new UiSelector().resourceId(\"com.smartfren.switchmobile:id/language\"));");
             Thread.sleep(4000);
             Assert.assertEquals(activeLang(), "Bahasa");
         } else {
             elementToClick.click();
             driver.findElement(By.id(ObjectElement.ProfilePageObject.btnEnglish)).click();
             driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()"
-                            + ".resourceId(\"com.smartfren.switchmobile:id/scrollView2\")).scrollIntoView("
-                            + "new UiSelector().resourceId(\"com.smartfren.switchmobile:id/language\"));");
+                    + ".resourceId(\"com.smartfren.switchmobile:id/scrollView2\")).scrollIntoView("
+                    + "new UiSelector().resourceId(\"com.smartfren.switchmobile:id/language\"));");
             Thread.sleep(4000);
             Assert.assertEquals(activeLang(), "English");
         }
@@ -182,14 +184,14 @@ public class BaseProfile extends BaseTest {
     }
 
     public void setInputChat() {
-        if (driver.findElement(By.id(ObjectElement.HelpPageObject.btnChatNotAvailable)).isDisplayed()) {
+        if (driver.findElements(By.id(ObjectElement.HelpPageObject.btnChatNotAvailable)).size() != 0) {
             System.out.println("Chat Not Available");
         } else {
-            action.click(btnChatIn);
             action.sendKeys(InputChat,"hello");
             action.checkerEqual(txtHeadTitleMenu,"Chat");
         }
     }
+
 
     public void updateAlternatePhoneNumber() {
         String AlternatePhone = driver.findElement(By.id(ObjectElement.EditProfileObject.inputAlternatePhoneNumber)).getText();

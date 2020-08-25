@@ -140,6 +140,7 @@ public class ObjectElement extends BaseTest {
         String btnSeeAllFavorite = "com.smartfren.switchmobile:id/textView37";
         String scrollView = "com.smartfren.switchmobile:id/scrollView2";
         String btnLoginHere = "com.smartfren.switchmobile:id/clickhere";
+
     }
 
     public interface HelpPageObject {
@@ -149,6 +150,7 @@ public class ObjectElement extends BaseTest {
         String btnBackFromChat = "com.smartfren.switchmobile:id/imageView2";
         String btnChatNotAvailable ="com.smartfren.switchmobile:id/no_agents_button";
         String btnFAQ ="com.smartfren.switchmobile:id/txt_faq";
+        String btnEmail = "com.smartfren.switchmobile:id/txt_email";
     }
     public interface EditProfileObject {
         String inputFullName = "com.smartfren.switchmobile:id/user_name";
