@@ -29,22 +29,6 @@ public class BaseLogin extends BaseTest {
 
     public By txtVariousLoginDesc = By.id(ObjectElement.LoginPageObject.txtVariousLoginDesc);
 
-    public void clickButtonSubmitLogin() {
-        driver.findElement(By.id(ObjectElement.LoginPageObject.btnSubmitLogin)).click();
-    }
-
-    public void inputUsername(String username) {
-        driver.findElement(By.id(ObjectElement.LoginPageObject.inputUserName)).sendKeys(username);
-    }
-
-    public void inputPIN(String pin) {
-        driver.findElement(By.id(ObjectElement.PINPageObject.inputPIN)).sendKeys(pin);
-    }
-
-    public void checkSuccessLogin() {
-        Assert.assertNotNull(driver.findElement(By.id(ObjectElement.MenuPageObject.btnProfile)));
-    }
-
     public void checkValidationUnregisteredEmail() {
         String TextInfo = driver.findElement(By.id(ObjectElement.LoginPageObject.txtUserValidationTitle)).getText();
         String DescInfoValidation = driver.findElement(By.id(ObjectElement.LoginPageObject.txtVariousLoginDesc)).getText();
@@ -63,17 +47,9 @@ public class BaseLogin extends BaseTest {
         Assert.assertNotNull(driver.findElement(By.id(ObjectElement.LoginPageObject.btnSignUp2)));
     }
 
-    public void checkInvalidDomainEmail() {
-
-    }
-
     public void checkInvalidSwitchNumber() {
         String validationTxt = driver.findElement(By.id(ObjectElement.LoginPageObject.txtErrorInputDesc)).getText();
         Assert.assertEquals(validationTxt, BaseData.Validation.VALIDATION_WRONG_SWITCH_NUMBER);
-    }
-
-    public void checkDisabledButtonSubmit() {
-        Assert.assertFalse(driver.findElement(By.id(ObjectElement.LoginPageObject.btnSubmitLogin)).isEnabled());
     }
 
     public void clickButtonSignUp() {

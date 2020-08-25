@@ -152,7 +152,7 @@ public class ProfilePages {
     }
 
     public void testEmailUs() {
-        baseHomepage.clickButtonProfile();
+        action.click(baseHomepage.btnProfile);
         baseProfile.clickButtonHelp();
         baseProfile.clickButtonChatWithShely();
         baseProfile.clickButtonEmail();

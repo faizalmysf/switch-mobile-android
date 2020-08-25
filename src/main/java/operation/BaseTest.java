@@ -80,7 +80,7 @@ public class BaseTest {
         //Populating the properties file
         configFile.setProperty("Device Name", "udid");
         configFile.setProperty("Android Version", "androidPlatformVersion");
-        File file = new File("Users\\faizalprakoso\\IdeaProjects\\switch-mobile-automation\\target\\allure-results");
+        File file = new File("target\\allure-results");
         FileOutputStream fileOut = new FileOutputStream(file);
         configFile.store(fileOut, "Device Info");
         fileOut.close();

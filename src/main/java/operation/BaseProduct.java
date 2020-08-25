@@ -62,9 +62,4 @@ public class BaseProduct extends BaseTest {
                         + "new UiSelector().text(\"Lite Bundle\"));");
         elementToClick.click();
     }
-
-    public void checkProductTitle(String productTitle) {
-        String productName = driver.findElement(By.id(ObjectElement.ProductPageObject.txtProductTitle)).getText();
-        Assert.assertEquals(productTitle, productName);
-    }
 }
