@@ -39,7 +39,7 @@
     </build>
 
     <properties>
-        <junit.version>3.8.1</junit.version>
+        <junit.version>4.13.1</junit.version>
         <appium.version>7.3.0</appium.version>
         <selenium.java.version>3.141.59</selenium.java.version>
         <apache.common.version>3.7</apache.common.version>
